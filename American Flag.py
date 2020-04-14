@@ -1,7 +1,7 @@
 import turtle
 drw = turtle.Turtle()
 drw.speed(100000000000000000)
-drw.dot(2000000, 'pink')
+drw.dot(2000000, 'purple')
 #Moves turtle to top left
 drw.penup()
 drw.left(90)
@@ -9,6 +9,10 @@ drw.forward(300)
 drw.left(90)
 drw.forward(370)
 drw.left(180)
+
+
+#name=input('Your name?')
+#print("Hello, ",name)
 
 
 def drawrectangle (distl, disth):
