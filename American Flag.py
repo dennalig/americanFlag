@@ -10,6 +10,8 @@ drw.left(90)
 drw.forward(370)
 drw.left(180)
 
+print(5)
+
 
 #name=input('Your name?')
 #print("Hello, ",name)
