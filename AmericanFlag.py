@@ -1,7 +1,36 @@
-import turtle
+import turtle # turtle writer 
+from matplotlib.colors import is_color_like # https://stackoverflow.com/questions/42876366/check-if-a-string-defines-a-color
+# this checks if the user input for the colors are valid 
+def checkColorInput(name): # checks if it is a valid color 
+    name = name.lower()
+    name = name.strip()
+    while(not is_color_like(name)):
+        name = input("Please enter a valid color: ")
+        name = name.lower()
+        name = name.strip()
+    
+    return name #returns color
+
+colorName = input("Enter a preffered Background color: ") 
+colorName= checkColorInput(colorName) # background call
+
+#inner rectangle
+innerColor = input("Enter a preffered Inner color: ")
+innerColor = checkColorInput(innerColor) # stripe call
+
+#first stripe 
+stripe1 = input("Enter a preffered stripe (red place) color: ")
+stripe1 = checkColorInput(stripe1)
+
+#second stripe 
+
+stripe2 = input("Enter a preffered stripe (white place) color: ")
+stripe2 = checkColorInput(stripe2)
+
+
 drw = turtle.Turtle()
 drw.speed(100000000000000000)
-drw.dot(2000000, 'purple')
+drw.dot(2000000, colorName) # preffered color is placed in 
 #Moves turtle to top left
 drw.penup()
 drw.left(90)
@@ -10,12 +39,9 @@ drw.left(90)
 drw.forward(370)
 drw.left(180)
 
-print(5)
 
 
-#name=input('Your name?')
-#print("Hello, ",name)
-#
+
 
 
 def drawrectangle (distl, disth):
@@ -31,7 +57,7 @@ drawrectangle(700,400)
 
 #Draws small rectangle
 
-drw.color('navy','navy')
+drw.color(innerColor,innerColor)
 drw.begin_fill()
 drawrectangle(315,199.98)
 drw.end_fill()
@@ -58,8 +84,8 @@ def stripe(color, num):
             drw.penup()
 #Draws first 6 stripes
 for k in range(3):
-    stripe('red',385)
-    stripe('white',385)
+    stripe(stripe1,385)
+    stripe(stripe2,385)
 drw.color('black')
 
 #positions turtle for next set of stripes
@@ -69,9 +95,9 @@ drw.left(90)
 
 #Draws last 7 stripes
 for l in range(3):
-    stripe('red',700)
-    stripe('white',700)
-stripe('red',700)
+    stripe(stripe1,700)
+    stripe(stripe2,700)
+stripe(stripe1,700)
 
 #positions turtle for star formation in the top left corner of flag 
 drw.color('black','black')
@@ -87,7 +113,7 @@ drw.left(90)
 def star(dist):
     drw.backward(dist)
     drw.pendown()
-    drw.color('white','white')
+    drw.color(stripe2,stripe2) # stripe2 is also the color of the stars 
     drw.begin_fill()
     def toppoint(ang1, angr2, length):
         drw.right(ang1)
@@ -143,7 +169,9 @@ for q in range (5):
     
 drw.forward(50)
 
-    
+turtle.done() # exits on exit
+
+
 
 
 
