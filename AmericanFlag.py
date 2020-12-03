@@ -5,7 +5,7 @@ def checkColorInput(name): # checks if it is a valid color
     name = name.lower()
     name = name.strip()
     while(not is_color_like(name)):
-        name = input("Please enter a valid color: ")
+        name = input("Please enter a valid color (ex: red, #000000, teal): ")
         name = name.lower()
         name = name.strip()
     
